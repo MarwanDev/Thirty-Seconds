@@ -60,9 +60,19 @@ namespace ThirtySeconds
 
         private void SetGameResultText()
         {
-            GameResult = Winner != enWinner.TBD ? Winner == enWinner.Draw ? "Draw 🤝" : 
-                Winner == enWinner.Team1 ? $"{AddTeamForm.Team1.Name} Wins 🎉" :
-                Winner == enWinner.Team1 ? $"{AddTeamForm.Team2.Name} Wins 🎉" : null : null;
+            GameResult = Winner != enWinner.TBD ?
+                Winner == enWinner.Draw ?
+                $"{AddTeamForm.Team1.WinningRounds} - " +
+                $"{AddTeamForm.Team2.WinningRounds}\n" +
+                $"Draw 🤝" :
+                Winner == enWinner.Team1 ?
+                $"{AddTeamForm.Team1.WinningRounds} - " +
+                $"{AddTeamForm.Team2.WinningRounds}\n" +
+                $"{AddTeamForm.Team1.Name} Wins 🎉" :
+                Winner == enWinner.Team2 ?
+                $"{AddTeamForm.Team1.WinningRounds} - " +
+                $"{AddTeamForm.Team2.WinningRounds}\n" +
+                $"{AddTeamForm.Team2.Name} Wins 🎉" : null : null;
         }
 
         public clsRound CurrentRound { get; set; }
@@ -83,7 +93,7 @@ namespace ThirtySeconds
         private void SetGameSummary()
         {
             byte counter = 1;
-            foreach(clsRound round in _Rounds)
+            foreach (clsRound round in _Rounds)
             {
                 GameSummary += $"Round {counter}: {round.Team1.Score} - {round.Team2.Score}\n";
                 counter++;
@@ -93,21 +103,15 @@ namespace ThirtySeconds
         private void CalculateGameWinner()
         {
             Winner = AddTeamForm.Team1.WinningRounds == AddTeamForm.Team2.WinningRounds ? enWinner.Draw :
-                AddTeamForm.Team1.WinningRounds > AddTeamForm.Team2.WinningRounds ? enWinner.Team1 : enWinner.Team2;
+                AddTeamForm.Team1.WinningRounds > AddTeamForm.Team2.WinningRounds ? enWinner.Team1 :
+                AddTeamForm.Team1.WinningRounds < AddTeamForm.Team2.WinningRounds ?  enWinner.Team2 : enWinner.TBD;
         }
 
-        public void ShowFinalMessageBox()
+        public void FinalizeGame()
         {
-            //ModifyTeamWonRounds();
             CalculateGameWinner();
             SetGameResultText();
             SetGameSummary();
-            MessageBox.Show(GameSummary, "Rounds Summary");
-            MessageBox.Show($"Team: {AddTeamForm.Team1.Name} Won " +
-                $"{AddTeamForm.Team1.WinningRounds} Rounds\n" +
-                $"Team: {AddTeamForm.Team2.Name} Won " +
-                $"{AddTeamForm.Team2.WinningRounds} Rounds\n", 
-                "Rounds Summary");
         }
 
         public void AddRoundToList()
@@ -119,8 +123,8 @@ namespace ThirtySeconds
             string roundResult = CurrentRound.RoundWinner != clsRound.enWinner.TBD ?
                 CurrentRound.RoundWinner == clsRound.enWinner.Draw ?
                 "The Round Ended With Draw 🤝" :
-                CurrentRound.RoundWinner == clsRound.enWinner.Team1 ? 
-                $"{CurrentRound.Team1.Name} is the Round {CurrentRoundNumber} Winner 🎉" : 
+                CurrentRound.RoundWinner == clsRound.enWinner.Team1 ?
+                $"{CurrentRound.Team1.Name} is the Round {CurrentRoundNumber} Winner 🎉" :
                 CurrentRound.RoundWinner == clsRound.enWinner.Team2 ?
                 $"{CurrentRound.Team2.Name} is the Round {CurrentRoundNumber} Winner 🎉" : null : null;
             _Rounds.Add(CurrentRound);
@@ -133,7 +137,7 @@ namespace ThirtySeconds
 
         public void ShowConsole()
         {
-            foreach(clsRound round in _Rounds)
+            foreach (clsRound round in _Rounds)
             {
                 Console.WriteLine($"{round.Team1.Score} - {round.Team2.Score}");
             }

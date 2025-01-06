@@ -66,7 +66,7 @@
             this.lblFinalResult.AutoSize = true;
             this.lblFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFinalResult.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblFinalResult.Location = new System.Drawing.Point(318, 424);
+            this.lblFinalResult.Location = new System.Drawing.Point(320, 574);
             this.lblFinalResult.Name = "lblFinalResult";
             this.lblFinalResult.Size = new System.Drawing.Size(189, 25);
             this.lblFinalResult.TabIndex = 4;
@@ -107,7 +107,7 @@
             this.btnPlayAgain.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayAgain.ForeColor = System.Drawing.Color.White;
-            this.btnPlayAgain.Location = new System.Drawing.Point(331, 464);
+            this.btnPlayAgain.Location = new System.Drawing.Point(323, 655);
             this.btnPlayAgain.Name = "btnPlayAgain";
             this.btnPlayAgain.Size = new System.Drawing.Size(176, 52);
             this.btnPlayAgain.TabIndex = 32;
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 545);
+            this.ClientSize = new System.Drawing.Size(800, 721);
             this.Controls.Add(this.btnPlayAgain);
             this.Controls.Add(this.lblSummary);
             this.Controls.Add(this.lblFinalResult);

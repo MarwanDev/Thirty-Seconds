@@ -49,6 +49,11 @@
             // 
             this.nfNumberOfRounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nfNumberOfRounds.Location = new System.Drawing.Point(63, 99);
+            this.nfNumberOfRounds.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
             this.nfNumberOfRounds.Minimum = new decimal(new int[] {
             1,
             0,

@@ -32,17 +32,17 @@ namespace ThirtySeconds
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
+            btnReset = new System.Windows.Forms.Button();
+            btnStart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.llSkipCountDown = new System.Windows.Forms.LinkLabel();
-            this.btnStartRound = new System.Windows.Forms.Button();
+            llSkipCountDown = new System.Windows.Forms.LinkLabel();
+            btnStartRound = new System.Windows.Forms.Button();
             this.btnGameRules = new System.Windows.Forms.Button();
-            this.lblScore = new System.Windows.Forms.Label();
+            lblScore = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblQuestionType = new System.Windows.Forms.Label();
-            this.cbQuestionType = new System.Windows.Forms.ComboBox();
+            lblTime = new System.Windows.Forms.Label();
+            lblQuestionType = new System.Windows.Forms.Label();
+            cbQuestionType = new System.Windows.Forms.ComboBox();
             this.rdDark = new System.Windows.Forms.RadioButton();
             this.rdLight = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,9 +50,9 @@ namespace ThirtySeconds
             this.pnlRules = new System.Windows.Forms.Panel();
             this.lblGameRules = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
-            this.lblImageHeader = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.pnlRound = new System.Windows.Forms.Panel();
+            lblImageHeader = new System.Windows.Forms.Label();
+            pbLogo = new System.Windows.Forms.PictureBox();
+            pnlRound = new System.Windows.Forms.Panel();
             this.lblRound = new System.Windows.Forms.Label();
             this.gbRound = new System.Windows.Forms.GroupBox();
             this.pbCurrentTeam = new System.Windows.Forms.PictureBox();
@@ -68,49 +68,49 @@ namespace ThirtySeconds
             this.groupBox1.SuspendLayout();
             this.gbGame.SuspendLayout();
             this.pnlRules.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            this.pnlRound.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pbLogo)).BeginInit();
+            pnlRound.SuspendLayout();
             this.gbRound.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCurrentTeam)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnReset.Enabled = false;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(941, 485);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(122, 52);
-            this.btnReset.TabIndex = 32;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            btnReset.BackColor = System.Drawing.Color.CornflowerBlue;
+            btnReset.Enabled = false;
+            btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnReset.ForeColor = System.Drawing.Color.White;
+            btnReset.Location = new System.Drawing.Point(941, 485);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new System.Drawing.Size(122, 52);
+            btnReset.TabIndex = 32;
+            btnReset.Text = "Reset";
+            btnReset.UseVisualStyleBackColor = false;
+            btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnStart
             // 
-            this.btnStart.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(793, 485);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(122, 52);
-            this.btnStart.TabIndex = 31;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            btnStart.BackColor = System.Drawing.Color.CornflowerBlue;
+            btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnStart.ForeColor = System.Drawing.Color.White;
+            btnStart.Location = new System.Drawing.Point(793, 485);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new System.Drawing.Size(122, 52);
+            btnStart.TabIndex = 31;
+            btnStart.Text = "Start";
+            btnStart.UseVisualStyleBackColor = false;
+            btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.llSkipCountDown);
-            this.groupBox1.Controls.Add(this.btnStartRound);
+            this.groupBox1.Controls.Add(llSkipCountDown);
+            this.groupBox1.Controls.Add(btnStartRound);
             this.groupBox1.Controls.Add(this.btnGameRules);
-            this.groupBox1.Controls.Add(this.lblScore);
+            this.groupBox1.Controls.Add(lblScore);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.lblTime);
-            this.groupBox1.Controls.Add(this.lblQuestionType);
-            this.groupBox1.Controls.Add(this.cbQuestionType);
+            this.groupBox1.Controls.Add(lblTime);
+            this.groupBox1.Controls.Add(lblQuestionType);
+            this.groupBox1.Controls.Add(cbQuestionType);
             this.groupBox1.Controls.Add(this.rdDark);
             this.groupBox1.Controls.Add(this.rdLight);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,31 +124,31 @@ namespace ThirtySeconds
             // 
             // llSkipCountDown
             // 
-            this.llSkipCountDown.AutoSize = true;
-            this.llSkipCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llSkipCountDown.Location = new System.Drawing.Point(86, 221);
-            this.llSkipCountDown.Name = "llSkipCountDown";
-            this.llSkipCountDown.Size = new System.Drawing.Size(117, 18);
-            this.llSkipCountDown.TabIndex = 36;
-            this.llSkipCountDown.TabStop = true;
-            this.llSkipCountDown.Text = "Skip Countdown";
-            this.llSkipCountDown.Visible = false;
-            this.llSkipCountDown.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llSkipCountDown_LinkClicked);
+            llSkipCountDown.AutoSize = true;
+            llSkipCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            llSkipCountDown.Location = new System.Drawing.Point(86, 221);
+            llSkipCountDown.Name = "llSkipCountDown";
+            llSkipCountDown.Size = new System.Drawing.Size(117, 18);
+            llSkipCountDown.TabIndex = 36;
+            llSkipCountDown.TabStop = true;
+            llSkipCountDown.Text = "Skip Countdown";
+            llSkipCountDown.Visible = false;
+            llSkipCountDown.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llSkipCountDown_LinkClicked);
             // 
             // btnStartRound
             // 
-            this.btnStartRound.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnStartRound.Enabled = false;
-            this.btnStartRound.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartRound.ForeColor = System.Drawing.Color.White;
-            this.btnStartRound.Location = new System.Drawing.Point(90, 155);
-            this.btnStartRound.Name = "btnStartRound";
-            this.btnStartRound.Size = new System.Drawing.Size(99, 37);
-            this.btnStartRound.TabIndex = 35;
-            this.btnStartRound.Text = "Start Round";
-            this.btnStartRound.UseVisualStyleBackColor = false;
-            this.btnStartRound.Visible = false;
-            this.btnStartRound.Click += new System.EventHandler(this.btnStartRound_Click);
+            btnStartRound.BackColor = System.Drawing.Color.CornflowerBlue;
+            btnStartRound.Enabled = false;
+            btnStartRound.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnStartRound.ForeColor = System.Drawing.Color.White;
+            btnStartRound.Location = new System.Drawing.Point(90, 155);
+            btnStartRound.Name = "btnStartRound";
+            btnStartRound.Size = new System.Drawing.Size(99, 37);
+            btnStartRound.TabIndex = 35;
+            btnStartRound.Text = "Start Round";
+            btnStartRound.UseVisualStyleBackColor = false;
+            btnStartRound.Visible = false;
+            btnStartRound.Click += new System.EventHandler(this.btnStartRound_Click);
             // 
             // btnGameRules
             // 
@@ -165,14 +165,14 @@ namespace ThirtySeconds
             // 
             // lblScore
             // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblScore.Location = new System.Drawing.Point(168, 245);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(35, 17);
-            this.lblScore.TabIndex = 12;
-            this.lblScore.Text = "0/5";
+            lblScore.AutoSize = true;
+            lblScore.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblScore.ForeColor = System.Drawing.Color.CornflowerBlue;
+            lblScore.Location = new System.Drawing.Point(168, 245);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new System.Drawing.Size(35, 17);
+            lblScore.TabIndex = 12;
+            lblScore.Text = "0/5";
             // 
             // label8
             // 
@@ -187,30 +187,30 @@ namespace ThirtySeconds
             // 
             // lblTime
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblTime.Location = new System.Drawing.Point(128, 204);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(28, 17);
-            this.lblTime.TabIndex = 8;
-            this.lblTime.Text = "30";
+            lblTime.AutoSize = true;
+            lblTime.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblTime.ForeColor = System.Drawing.Color.CornflowerBlue;
+            lblTime.Location = new System.Drawing.Point(128, 204);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new System.Drawing.Size(28, 17);
+            lblTime.TabIndex = 8;
+            lblTime.Text = "30";
             // 
             // lblQuestionType
             // 
-            this.lblQuestionType.AutoSize = true;
-            this.lblQuestionType.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblQuestionType.Location = new System.Drawing.Point(11, 88);
-            this.lblQuestionType.Name = "lblQuestionType";
-            this.lblQuestionType.Size = new System.Drawing.Size(163, 25);
-            this.lblQuestionType.TabIndex = 3;
-            this.lblQuestionType.Text = "Question Types";
+            lblQuestionType.AutoSize = true;
+            lblQuestionType.ForeColor = System.Drawing.Color.CornflowerBlue;
+            lblQuestionType.Location = new System.Drawing.Point(11, 88);
+            lblQuestionType.Name = "lblQuestionType";
+            lblQuestionType.Size = new System.Drawing.Size(163, 25);
+            lblQuestionType.TabIndex = 3;
+            lblQuestionType.Text = "Question Types";
             // 
             // cbQuestionType
             // 
-            this.cbQuestionType.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.cbQuestionType.FormattingEnabled = true;
-            this.cbQuestionType.Items.AddRange(new object[] {
+            cbQuestionType.ForeColor = System.Drawing.Color.CornflowerBlue;
+            cbQuestionType.FormattingEnabled = true;
+            cbQuestionType.Items.AddRange(new object[] {
             "Programming",
             "TV Shows",
             "Movies",
@@ -218,11 +218,11 @@ namespace ThirtySeconds
             "Hobbies",
             "School Subjects",
             "Nationalities"});
-            this.cbQuestionType.Location = new System.Drawing.Point(13, 116);
-            this.cbQuestionType.Name = "cbQuestionType";
-            this.cbQuestionType.Size = new System.Drawing.Size(244, 33);
-            this.cbQuestionType.TabIndex = 2;
-            this.cbQuestionType.Visible = false;
+            cbQuestionType.Location = new System.Drawing.Point(13, 116);
+            cbQuestionType.Name = "cbQuestionType";
+            cbQuestionType.Size = new System.Drawing.Size(244, 33);
+            cbQuestionType.TabIndex = 2;
+            cbQuestionType.Visible = false;
             // 
             // rdDark
             // 
@@ -309,34 +309,34 @@ namespace ThirtySeconds
             // 
             // lblImageHeader
             // 
-            this.lblImageHeader.AutoSize = true;
-            this.lblImageHeader.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImageHeader.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblImageHeader.Location = new System.Drawing.Point(104, 800);
-            this.lblImageHeader.Name = "lblImageHeader";
-            this.lblImageHeader.Size = new System.Drawing.Size(237, 17);
-            this.lblImageHeader.TabIndex = 35;
-            this.lblImageHeader.Text = "Are You Ready For 30 Seconds?";
+            lblImageHeader.AutoSize = true;
+            lblImageHeader.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblImageHeader.ForeColor = System.Drawing.Color.CornflowerBlue;
+            lblImageHeader.Location = new System.Drawing.Point(104, 800);
+            lblImageHeader.Name = "lblImageHeader";
+            lblImageHeader.Size = new System.Drawing.Size(237, 17);
+            lblImageHeader.TabIndex = 35;
+            lblImageHeader.Text = "Are You Ready For 30 Seconds?";
             // 
             // pbLogo
             // 
-            this.pbLogo.Image = global::ThirtySeconds.Properties.Resources.logo;
-            this.pbLogo.Location = new System.Drawing.Point(78, 553);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(306, 215);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogo.TabIndex = 34;
-            this.pbLogo.TabStop = false;
+            pbLogo.Image = global::ThirtySeconds.Properties.Resources.logo;
+            pbLogo.Location = new System.Drawing.Point(78, 553);
+            pbLogo.Name = "pbLogo";
+            pbLogo.Size = new System.Drawing.Size(306, 215);
+            pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pbLogo.TabIndex = 34;
+            pbLogo.TabStop = false;
             // 
             // pnlRound
             // 
-            this.pnlRound.Controls.Add(this.lblRound);
-            this.pnlRound.Controls.Add(this.gbRound);
-            this.pnlRound.Location = new System.Drawing.Point(429, 592);
-            this.pnlRound.Name = "pnlRound";
-            this.pnlRound.Size = new System.Drawing.Size(647, 361);
-            this.pnlRound.TabIndex = 36;
-            this.pnlRound.Visible = false;
+            pnlRound.Controls.Add(this.lblRound);
+            pnlRound.Controls.Add(this.gbRound);
+            pnlRound.Location = new System.Drawing.Point(429, 592);
+            pnlRound.Name = "pnlRound";
+            pnlRound.Size = new System.Drawing.Size(647, 361);
+            pnlRound.TabIndex = 36;
+            pnlRound.Visible = false;
             // 
             // lblRound
             // 
@@ -482,12 +482,12 @@ namespace ThirtySeconds
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 549);
-            this.Controls.Add(this.pnlRound);
-            this.Controls.Add(this.lblImageHeader);
+            this.Controls.Add(pnlRound);
+            this.Controls.Add(lblImageHeader);
             this.Controls.Add(this.gbGame);
-            this.Controls.Add(this.pbLogo);
-            this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnStart);
+            this.Controls.Add(pbLogo);
+            this.Controls.Add(btnReset);
+            this.Controls.Add(btnStart);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
@@ -498,9 +498,9 @@ namespace ThirtySeconds
             this.gbGame.ResumeLayout(false);
             this.pnlRules.ResumeLayout(false);
             this.pnlRules.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            this.pnlRound.ResumeLayout(false);
-            this.pnlRound.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pbLogo)).EndInit();
+            pnlRound.ResumeLayout(false);
+            pnlRound.PerformLayout();
             this.gbRound.ResumeLayout(false);
             this.gbRound.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCurrentTeam)).EndInit();
@@ -510,14 +510,14 @@ namespace ThirtySeconds
         }
 
         #endregion
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnStart;
+        private static System.Windows.Forms.Button btnReset;
+        private static System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblScore;
+        private static System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.Label lblQuestionType;
-        private System.Windows.Forms.ComboBox cbQuestionType;
+        private static System.Windows.Forms.Label lblTime;
+        private static System.Windows.Forms.Label lblQuestionType;
+        private static System.Windows.Forms.ComboBox cbQuestionType;
         private System.Windows.Forms.RadioButton rdDark;
         private System.Windows.Forms.RadioButton rdLight;
         private System.Windows.Forms.Label label1;
@@ -526,9 +526,9 @@ namespace ThirtySeconds
         private System.Windows.Forms.Panel pnlRules;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblGameRules;
-        private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Label lblImageHeader;
-        private System.Windows.Forms.Panel pnlRound;
+        private static System.Windows.Forms.PictureBox pbLogo;
+        private static System.Windows.Forms.Label lblImageHeader;
+        private static System.Windows.Forms.Panel pnlRound;
         private System.Windows.Forms.GroupBox gbRound;
         private System.Windows.Forms.Label lblCurrentTurn;
         private System.Windows.Forms.CheckBox checkBox5;
@@ -537,10 +537,10 @@ namespace ThirtySeconds
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label lblRound;
-        private System.Windows.Forms.Button btnStartRound;
+        private static System.Windows.Forms.Button btnStartRound;
         private System.Windows.Forms.PictureBox pbCurrentTeam;
         private Timer timer;
-        private System.Windows.Forms.LinkLabel llSkipCountDown;
+        private static System.Windows.Forms.LinkLabel llSkipCountDown;
         private Timer timerWaiting;
         private LinkLabel llWeb;
     }

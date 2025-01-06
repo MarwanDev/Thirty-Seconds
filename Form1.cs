@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 using ThirtySeconds.Properties;
-using static ThirtySeconds.clsRound;
 
 namespace ThirtySeconds
 {
@@ -14,7 +12,7 @@ namespace ThirtySeconds
         private clsGame Game;
         private NumberOfRoundsForm numberOfRoundsForm;
         private AddTeamForm addTeamForm;
-        byte _NumberOfRounds;
+        private static byte _NumberOfRounds;
         public static byte Time { get; set; }
         public AddTeamForm.enCurrentTeam CurrentTeam { get; private set; }
         private ResultsForm resultsForm;
@@ -38,7 +36,7 @@ namespace ThirtySeconds
             CheckBoxes.Add(checkBox5);
         }
 
-        private void InitializeGame()
+        private static void InitializeGame()
         {
             pbLogo.Left = 325;
             pbLogo.Top = 150;
@@ -193,7 +191,7 @@ namespace ThirtySeconds
             if (Game.IsGameOver())
             {
                 Game.ShowConsole();
-                Game.ShowFinalMessageBox();
+                Game.FinalizeGame();
                 ShowResultsForm();
             }
             else
@@ -329,8 +327,9 @@ namespace ThirtySeconds
             }
         }
 
-        public void ResetGame()
+        public static void ResetGame()
         {
+            _NumberOfRounds = 0;
             NumberOfRoundsForm.ResetGame();
             AddTeamForm.ResetGame();
             InitializeGame();

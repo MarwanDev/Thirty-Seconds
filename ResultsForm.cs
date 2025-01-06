@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThirtySeconds.Properties;
 
@@ -14,7 +6,6 @@ namespace ThirtySeconds
 {
     public partial class ResultsForm : Form
     {
-        private Form1 form1;
         public ResultsForm()
         {
             InitializeComponent();
@@ -34,9 +25,8 @@ namespace ThirtySeconds
 
         private void btnPlayAgain_Click(object sender, EventArgs e)
         {
+            Form1.ResetGame();
             this.Hide();
-            AddTeamForm.ResetGame();
-            NumberOfRoundsForm.ResetGame();
         }
     }
 }
