@@ -15,9 +15,9 @@ namespace ThirtySeconds
         private static byte _NumberOfRounds;
         public static byte Time { get; set; }
         public AddTeamForm.enCurrentTeam CurrentTeam { get; private set; }
-        private ResultsForm resultsForm;
+        private readonly ResultsForm resultsForm;
 
-        private List<CheckBox> _CheckBoxes;
+        private readonly List<CheckBox> _CheckBoxes;
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +42,7 @@ namespace ThirtySeconds
             pbLogo.Top = 150;
             lblImageHeader.Left = 350;
             lblImageHeader.Top = 400;
+            btnGameRules.Enabled = true;
             cbQuestionType.Enabled = false;
             lblQuestionType.Visible = false;
             btnStartRound.Visible = false;
@@ -66,7 +67,7 @@ namespace ThirtySeconds
             addTeamForm = new AddTeamForm();
         }
 
-        private void btnGameRules_Click(object sender, EventArgs e)
+        private void BtnGameRules_Click(object sender, EventArgs e)
         {
             pbLogo.Visible = false;
             lblImageHeader.Visible = false;
@@ -74,7 +75,7 @@ namespace ThirtySeconds
             btnNext.Visible = true;
         }
 
-        private void rd_CheckedChanged(object sender, EventArgs e)
+        private void Rd_CheckedChanged(object sender, EventArgs e)
         {
             this.BackColor = rdDark.Checked == true ? Color.FromArgb(28, 28, 28) : Color.White;
             cbQuestionType.BackColor = rdDark.Checked == true ? Color.FromArgb(28, 28, 28) : Color.White;
@@ -84,7 +85,7 @@ namespace ThirtySeconds
             resultsForm.BackColor = rdDark.Checked == true ? Color.FromArgb(28, 28, 28) : Color.White;
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void BtnNext_Click(object sender, EventArgs e)
         {
             gbGame.Visible = false;
             pbLogo.Visible = true;
@@ -122,7 +123,7 @@ namespace ThirtySeconds
             addTeamForm.ShowDialog();
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void BtnStart_Click(object sender, EventArgs e)
         {
             if (_NumberOfRounds == 0)
             {
@@ -146,12 +147,13 @@ namespace ThirtySeconds
         private void ModifyTurnUI()
         {
             lblCurrentTurn.Text = AddTeamForm.TurnPlayer.Name;
-            pbCurrentTeam.Image = AddTeamForm.TurnPlayer.Image != null ?
-                AddTeamForm.TurnPlayer.Image : Resources.logo1;
+            pbCurrentTeam.Image = AddTeamForm.TurnPlayer.Image ?? Resources.logo1;
         }
 
-        private void btnStartRound_Click(object sender, EventArgs e)
+        private void BtnStartRound_Click(object sender, EventArgs e)
         {
+            btnGameRules.Enabled = false;
+            gbGame.Visible = false;
             lblImageHeader.Visible = false;
             pbLogo.Visible = false;
             pnlRound.Left = 50;
@@ -243,7 +245,7 @@ namespace ThirtySeconds
             lblTime.Visible = true;
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             timer.Interval = 1000;
             Time--;
@@ -268,8 +270,7 @@ namespace ThirtySeconds
 
         private void ChangeCheckBoxFontStyle(object sender)
         {
-            CheckBox checkBox = sender as CheckBox;
-            if (checkBox != null)
+            if (sender is CheckBox checkBox)
             {
                 FontStyle style = checkBox.Checked ? FontStyle.Strikeout : FontStyle.Regular;
                 checkBox.Font = new Font(checkBox.Font.FontFamily, checkBox.Font.Size, style);
@@ -306,13 +307,13 @@ namespace ThirtySeconds
             lblScore.Visible = true;
         }
 
-        private void llSkipCountDown_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LlSkipCountDown_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             timerWaiting.Enabled = false;
             StartSecondTurn();
         }
 
-        private void timerWaiting_Tick(object sender, EventArgs e)
+        private void TimerWaiting_Tick(object sender, EventArgs e)
         {
             Time--;
             lblTime.Text = Time.ToString();
@@ -335,12 +336,12 @@ namespace ThirtySeconds
             InitializeGame();
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void BtnReset_Click(object sender, EventArgs e)
         {
             ResetGame();
         }
 
-        private void llWeb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LlWeb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(new ProcessStartInfo("https://brain-cardio-naledi.netlify.app/") { UseShellExecute = true });
         }

@@ -37,7 +37,7 @@ namespace ThirtySeconds
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             llSkipCountDown = new System.Windows.Forms.LinkLabel();
             btnStartRound = new System.Windows.Forms.Button();
-            this.btnGameRules = new System.Windows.Forms.Button();
+            btnGameRules = new System.Windows.Forms.Button();
             lblScore = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             lblTime = new System.Windows.Forms.Label();
@@ -86,7 +86,7 @@ namespace ThirtySeconds
             btnReset.TabIndex = 32;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = false;
-            btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            btnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // btnStart
             // 
@@ -99,13 +99,13 @@ namespace ThirtySeconds
             btnStart.TabIndex = 31;
             btnStart.Text = "Start";
             btnStart.UseVisualStyleBackColor = false;
-            btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(llSkipCountDown);
             this.groupBox1.Controls.Add(btnStartRound);
-            this.groupBox1.Controls.Add(this.btnGameRules);
+            this.groupBox1.Controls.Add(btnGameRules);
             this.groupBox1.Controls.Add(lblScore);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(lblTime);
@@ -133,7 +133,7 @@ namespace ThirtySeconds
             llSkipCountDown.TabStop = true;
             llSkipCountDown.Text = "Skip Countdown";
             llSkipCountDown.Visible = false;
-            llSkipCountDown.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llSkipCountDown_LinkClicked);
+            llSkipCountDown.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlSkipCountDown_LinkClicked);
             // 
             // btnStartRound
             // 
@@ -148,20 +148,20 @@ namespace ThirtySeconds
             btnStartRound.Text = "Start Round";
             btnStartRound.UseVisualStyleBackColor = false;
             btnStartRound.Visible = false;
-            btnStartRound.Click += new System.EventHandler(this.btnStartRound_Click);
+            btnStartRound.Click += new System.EventHandler(this.BtnStartRound_Click);
             // 
             // btnGameRules
             // 
-            this.btnGameRules.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnGameRules.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGameRules.ForeColor = System.Drawing.Color.White;
-            this.btnGameRules.Location = new System.Drawing.Point(51, 267);
-            this.btnGameRules.Name = "btnGameRules";
-            this.btnGameRules.Size = new System.Drawing.Size(181, 52);
-            this.btnGameRules.TabIndex = 34;
-            this.btnGameRules.Text = "Game Rules";
-            this.btnGameRules.UseVisualStyleBackColor = false;
-            this.btnGameRules.Click += new System.EventHandler(this.btnGameRules_Click);
+            btnGameRules.BackColor = System.Drawing.Color.CornflowerBlue;
+            btnGameRules.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnGameRules.ForeColor = System.Drawing.Color.White;
+            btnGameRules.Location = new System.Drawing.Point(51, 267);
+            btnGameRules.Name = "btnGameRules";
+            btnGameRules.Size = new System.Drawing.Size(181, 52);
+            btnGameRules.TabIndex = 34;
+            btnGameRules.Text = "Game Rules";
+            btnGameRules.UseVisualStyleBackColor = false;
+            btnGameRules.Click += new System.EventHandler(this.BtnGameRules_Click);
             // 
             // lblScore
             // 
@@ -236,7 +236,7 @@ namespace ThirtySeconds
             this.rdDark.TabStop = true;
             this.rdDark.Text = "Dark Mode";
             this.rdDark.UseVisualStyleBackColor = true;
-            this.rdDark.CheckedChanged += new System.EventHandler(this.rd_CheckedChanged);
+            this.rdDark.CheckedChanged += new System.EventHandler(this.Rd_CheckedChanged);
             // 
             // rdLight
             // 
@@ -250,7 +250,7 @@ namespace ThirtySeconds
             this.rdLight.TabStop = true;
             this.rdLight.Text = "Light Mode";
             this.rdLight.UseVisualStyleBackColor = true;
-            this.rdLight.CheckedChanged += new System.EventHandler(this.rd_CheckedChanged);
+            this.rdLight.CheckedChanged += new System.EventHandler(this.Rd_CheckedChanged);
             // 
             // label1
             // 
@@ -305,7 +305,7 @@ namespace ThirtySeconds
             this.btnNext.TabIndex = 34;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNext.Click += new System.EventHandler(this.BtnNext_Click);
             // 
             // lblImageHeader
             // 
@@ -457,12 +457,12 @@ namespace ThirtySeconds
             // timer
             // 
             this.timer.Interval = 1000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // timerWaiting
             // 
             this.timerWaiting.Interval = 1000;
-            this.timerWaiting.Tick += new System.EventHandler(this.timerWaiting_Tick);
+            this.timerWaiting.Tick += new System.EventHandler(this.TimerWaiting_Tick);
             // 
             // llWeb
             // 
@@ -475,7 +475,7 @@ namespace ThirtySeconds
             this.llWeb.TabIndex = 35;
             this.llWeb.TabStop = true;
             this.llWeb.Text = "Checkout The Web Version";
-            this.llWeb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llWeb_LinkClicked);
+            this.llWeb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlWeb_LinkClicked);
             // 
             // Form1
             // 
@@ -521,7 +521,7 @@ namespace ThirtySeconds
         private System.Windows.Forms.RadioButton rdDark;
         private System.Windows.Forms.RadioButton rdLight;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnGameRules;
+        private static System.Windows.Forms.Button btnGameRules;
         private System.Windows.Forms.GroupBox gbGame;
         private System.Windows.Forms.Panel pnlRules;
         private System.Windows.Forms.Button btnNext;
