@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ThirtySeconds.clsRound;
+using static ThirtySeconds.ClsRound;
 
 namespace ThirtySeconds
 {
     internal class clsGame
     {
         public byte NumberOfRounds { get; private set; }
-        private List<clsRound> _Rounds;
+        private List<ClsRound> _Rounds;
         public byte CurrentRoundNumber { get; private set; }
         public enum enWinner
         {
@@ -35,22 +35,22 @@ namespace ThirtySeconds
         {
             NumberOfRounds = numberOfRounds;
             Winner = enWinner.TBD;
-            _Rounds = new List<clsRound>();
+            _Rounds = new List<ClsRound>();
             QuestionTypeText = "";
             _Timer = timer;
             _CheckBoxes = checkBoxes;
             CurrentRoundNumber = 1;
         }
 
-        public enQuestionType SetRoundQuestionType()
+        public QuestionTypeEn SetRoundQuestionType()
         {
-            return QuestionTypeText == "Programming" ? enQuestionType.Programming :
-                QuestionTypeText == "TV Shows" ? enQuestionType.TVShows :
-                QuestionTypeText == "Movies" ? enQuestionType.Movies :
-                QuestionTypeText == "Sports" ? enQuestionType.Sports :
-                QuestionTypeText == "Hobbies" ? enQuestionType.Hobbies :
-                QuestionTypeText == "Nationalities" ? enQuestionType.Nationalities :
-                enQuestionType.SchoolSubjects;
+            return QuestionTypeText == "Programming" ? QuestionTypeEn.Programming :
+                QuestionTypeText == "TV Shows" ? QuestionTypeEn.TVShows :
+                QuestionTypeText == "Movies" ? QuestionTypeEn.Movies :
+                QuestionTypeText == "Sports" ? QuestionTypeEn.Sports :
+                QuestionTypeText == "Hobbies" ? QuestionTypeEn.Hobbies :
+                QuestionTypeText == "Nationalities" ? QuestionTypeEn.Nationalities :
+                QuestionTypeEn.SchoolSubjects;
         }
 
         public bool IsGameOver()
@@ -75,7 +75,7 @@ namespace ThirtySeconds
                 $"{AddTeamForm.Team2.Name} Wins 🎉" : null : null;
         }
 
-        public clsRound CurrentRound { get; set; }
+        public ClsRound CurrentRound { get; set; }
 
         private void ShowResultTextBox(string result)
         {
@@ -84,16 +84,16 @@ namespace ThirtySeconds
 
         private void ModifyTeamWonRounds()
         {
-            if (CurrentRound.RoundWinner == clsRound.enWinner.Team1)
-                AddTeamForm.IncrementWinningRounds(AddTeamForm.enCurrentTeam.Team1);
-            else if (CurrentRound.RoundWinner == clsRound.enWinner.Team2)
-                AddTeamForm.IncrementWinningRounds(AddTeamForm.enCurrentTeam.Team2);
+            if (CurrentRound.RoundWinner == ClsRound.Winner.Team1)
+                AddTeamForm.IncrementWinningRounds(AddTeamForm.CurrentTeam.Team1);
+            else if (CurrentRound.RoundWinner == ClsRound.Winner.Team2)
+                AddTeamForm.IncrementWinningRounds(AddTeamForm.CurrentTeam.Team2);
         }
 
         private void SetGameSummary()
         {
             byte counter = 1;
-            foreach (clsRound round in _Rounds)
+            foreach (ClsRound round in _Rounds)
             {
                 GameSummary += $"Round {counter}: {round.Team1.Score} - {round.Team2.Score}\n";
                 counter++;
@@ -120,12 +120,12 @@ namespace ThirtySeconds
             CurrentRound.Team2 = AddTeamForm.Team2;
             CurrentRound.CalculateWinner();
             ModifyTeamWonRounds();
-            string roundResult = CurrentRound.RoundWinner != clsRound.enWinner.TBD ?
-                CurrentRound.RoundWinner == clsRound.enWinner.Draw ?
+            string roundResult = CurrentRound.RoundWinner != ClsRound.Winner.TBD ?
+                CurrentRound.RoundWinner == ClsRound.Winner.Draw ?
                 "The Round Ended With Draw 🤝" :
-                CurrentRound.RoundWinner == clsRound.enWinner.Team1 ?
+                CurrentRound.RoundWinner == ClsRound.Winner.Team1 ?
                 $"{CurrentRound.Team1.Name} is the Round {CurrentRoundNumber} Winner 🎉" :
-                CurrentRound.RoundWinner == clsRound.enWinner.Team2 ?
+                CurrentRound.RoundWinner == ClsRound.Winner.Team2 ?
                 $"{CurrentRound.Team2.Name} is the Round {CurrentRoundNumber} Winner 🎉" : null : null;
             _Rounds.Add(CurrentRound);
             MessageBox.Show("Round is Over!!!", "Saved", MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
@@ -137,7 +137,7 @@ namespace ThirtySeconds
 
         public void ShowConsole()
         {
-            foreach (clsRound round in _Rounds)
+            foreach (ClsRound round in _Rounds)
             {
                 Console.WriteLine($"{round.Team1.Score} - {round.Team2.Score}");
             }
@@ -147,8 +147,8 @@ namespace ThirtySeconds
         {
             if (AddTeamForm.Team1.Name != null && AddTeamForm.Team2.Name != null)
             {
-                clsRound round =
-                    new clsRound(enQuestionType.Nationalities,
+                ClsRound round =
+                    new ClsRound(QuestionTypeEn.Nationalities,
                     checkBoxes: _CheckBoxes,
                     timer: _Timer);
                 CurrentRound = round;

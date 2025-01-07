@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ThirtySeconds.clsRound;
+using static ThirtySeconds.ClsRound;
 
 namespace ThirtySeconds
 {
     public partial class AddTeamForm : Form
     {
-        public struct stTeam
+        public struct TeamSt
         {
             public string Name { get; set; }
             public Image Image { get; set; }
             public byte Score { get; set; }
             public byte WinningRounds { get; set; }
 
-            public stTeam(string name, Image image)
+            public TeamSt(string name, Image image)
             {
                 Name = name;
                 Image = image;
@@ -44,29 +44,29 @@ namespace ThirtySeconds
                 }
             }
         }
-        public static stTeam Team1 { get; private set; }
-        public static stTeam Team2 { get; private set; }
-        public enum enCurrentTeam { Team1, Team2 };
-        public static enCurrentTeam CurrentTeam { get; set; }
-        public static stTeam TurnPlayer { get; set; }
+        public static TeamSt Team1 { get; private set; }
+        public static TeamSt Team2 { get; private set; }
+        public enum CurrentTeam { Team1, Team2 };
+        public static CurrentTeam TheCurrentTeam { get; set; }
+        public static TeamSt TurnPlayer { get; set; }
         public static void ModifyScore(bool increment = true)
         {
-            stTeam team;
+            TeamSt team;
             team = TurnPlayer;
             team.Score = increment ? (byte)(team.Score + 1) : (byte)(team.Score - 1);
             TurnPlayer = team;
         }
 
-        public static void IncrementWinningRounds(enCurrentTeam enTeam)
+        public static void IncrementWinningRounds(CurrentTeam enTeam)
         {
-            stTeam team;
-            team = enTeam == enCurrentTeam.Team1 ? Team1 : Team2;
+            TeamSt team;
+            team = enTeam == CurrentTeam.Team1 ? Team1 : Team2;
             team.WinningRounds++;
-            if (enTeam == enCurrentTeam.Team1)
+            if (enTeam == CurrentTeam.Team1)
             {
                 Team1 = team;
             }
-            else if (enTeam == enCurrentTeam.Team2)
+            else if (enTeam == CurrentTeam.Team2)
             {
                 Team2 = team;
             }
@@ -75,7 +75,7 @@ namespace ThirtySeconds
         public AddTeamForm()
         {
             InitializeComponent();
-            CurrentTeam = enCurrentTeam.Team1;
+            TheCurrentTeam = CurrentTeam.Team1;
             this.KeyPreview = true;
             this.KeyDown += AddTeamForm_KeyDown;
         }
@@ -95,7 +95,7 @@ namespace ThirtySeconds
 
         public void ChangeLabelText()
         {
-            lblTeam.Text = CurrentTeam == enCurrentTeam.Team2 ? "Second Team Name" :
+            lblTeam.Text = TheCurrentTeam == CurrentTeam.Team2 ? "Second Team Name" :
                 "First Team Name";
         }
 
@@ -107,7 +107,7 @@ namespace ThirtySeconds
 
         public static void ResetTeamScores()
         {
-            stTeam team = Team1;
+            TeamSt team = Team1;
             team.Score = 0;
             Team1 = team;
             team = Team2;
@@ -115,7 +115,7 @@ namespace ThirtySeconds
             Team2 = team;
         }
 
-        private void btnBrowseImg_Click(object sender, EventArgs e)
+        private void BtnBrowseImg_Click(object sender, EventArgs e)
         {
             if (fdImage.ShowDialog() == DialogResult.OK)
             {
@@ -125,13 +125,13 @@ namespace ThirtySeconds
 
         private void SaveTeamData()
         {
-            stTeam Team = CurrentTeam == enCurrentTeam.Team1 ? Team1 : Team2;
+            TeamSt Team = TheCurrentTeam == CurrentTeam.Team1 ? Team1 : Team2;
             Team.Name = tbTeamName.Text.Trim();
             Team.Image = pictureBox1.Image;
-            if (CurrentTeam == enCurrentTeam.Team1)
+            if (TheCurrentTeam == CurrentTeam.Team1)
             {
                 Team1 = Team;
-                CurrentTeam = enCurrentTeam.Team2;
+                TheCurrentTeam = CurrentTeam.Team2;
                 ClearForm();
             }
             else
@@ -148,7 +148,7 @@ namespace ThirtySeconds
                     Team1 = Team;
                     Team2 = Team;
                     ClearForm();
-                    CurrentTeam = enCurrentTeam.Team1;
+                    TheCurrentTeam = CurrentTeam.Team1;
                     ChangeLabelText();
                 }
                 else if (MessageBox.Show($"Team1: {Team1.Name}\nTeam2: {Team2.Name}\nTeams Saved Successfully",
@@ -158,11 +158,11 @@ namespace ThirtySeconds
                     MessageBox.Show("Please Click Start to Select Start 1st Round", "Start",
                         MessageBoxButtons.OK,
                         icon: MessageBoxIcon.Information);
-                    CurrentTeam = enCurrentTeam.Team1;
+                    TheCurrentTeam = CurrentTeam.Team1;
                 }
         }
 
-        private void btnGo_Click(object sender, EventArgs e)
+        private void BtnGo_Click(object sender, EventArgs e)
         {
             if (tbTeamName.Text.Trim() == "")
             {
@@ -186,13 +186,13 @@ namespace ThirtySeconds
 
         public static void ResetGame()
         {
-            Team1 = new stTeam();
-            Team2 = new stTeam();
+            Team1 = new TeamSt();
+            Team2 = new TeamSt();
         }
 
         public static void SaveTeamScore()
         {
-            AddTeamForm.stTeam team;
+            AddTeamForm.TeamSt team;
             team = AddTeamForm.TurnPlayer;
             if (TurnPlayer.Name == Team1.Name && TurnPlayer.Image == Team1.Image)
                 AddTeamForm.Team1 = team;

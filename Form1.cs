@@ -14,7 +14,7 @@ namespace ThirtySeconds
         private AddTeamForm addTeamForm;
         private static byte _NumberOfRounds;
         public static byte Time { get; set; }
-        public AddTeamForm.enCurrentTeam CurrentTeam { get; private set; }
+        public AddTeamForm.CurrentTeam CurrentTeam { get; private set; }
         private readonly ResultsForm resultsForm;
 
         private readonly List<CheckBox> _CheckBoxes;
@@ -115,7 +115,7 @@ namespace ThirtySeconds
 
         private void SaveTeams()
         {
-            CurrentTeam = AddTeamForm.enCurrentTeam.Team1;
+            CurrentTeam = AddTeamForm.CurrentTeam.Team1;
             addTeamForm.ClearForm();
             addTeamForm.ChangeLabelText();
             addTeamForm.ShowDialog();
@@ -253,11 +253,6 @@ namespace ThirtySeconds
             ExecuteTurn();
             if (Time == 0 && (!Game.CurrentRound.IsWaiting || AddTeamForm.TurnPlayer.Name == AddTeamForm.Team2.Name))
             {
-                //MessageBox.Show(
-                //    $"Time's Up. Your Score is {AddTeamForm.TurnPlayer.Score}",
-                //    "Time!",
-                //    MessageBoxButtons.OK,
-                //    icon: MessageBoxIcon.Information);
                 lblTime.Visible = false;
                 lblScore.Visible = false;
             }
@@ -279,7 +274,7 @@ namespace ThirtySeconds
 
         private void ModifyScore(object sender)
         {
-            AddTeamForm.stTeam team;
+            AddTeamForm.TeamSt team;
             team = Game.CurrentRound.CurrentTeam;
             if (((CheckBox)sender).Checked)
                 AddTeamForm.ModifyScore();

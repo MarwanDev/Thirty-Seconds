@@ -48,7 +48,7 @@
             this.btnGo.TabIndex = 35;
             this.btnGo.Text = "Go >";
             this.btnGo.UseVisualStyleBackColor = false;
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            this.btnGo.Click += new System.EventHandler(this.BtnGo_Click);
             // 
             // tbTeamName
             // 
@@ -86,7 +86,7 @@
             this.btnBrowseImg.TabIndex = 38;
             this.btnBrowseImg.Text = "Browse Image";
             this.btnBrowseImg.UseVisualStyleBackColor = false;
-            this.btnBrowseImg.Click += new System.EventHandler(this.btnBrowseImg_Click);
+            this.btnBrowseImg.Click += new System.EventHandler(this.BtnBrowseImg_Click);
             // 
             // pictureBox1
             // 

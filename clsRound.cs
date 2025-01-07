@@ -6,9 +6,9 @@ using static ThirtySeconds.AddTeamForm;
 
 namespace ThirtySeconds
 {
-    internal class clsRound
+    internal class ClsRound
     {
-        public enum enQuestionType
+        public enum QuestionTypeEn
         {
             Programming,
             TVShows,
@@ -18,23 +18,23 @@ namespace ThirtySeconds
             SchoolSubjects,
             Nationalities
         };
-        public enQuestionType QuestionType { get; set; }
-        public enum enWinner
+        public QuestionTypeEn QuestionType { get; set; }
+        public enum Winner
         {
             Team1,
             Team2,
             Draw,
             TBD
         };
-        public enWinner RoundWinner { get; set; }
-        public AddTeamForm.stTeam CurrentTeam { get; set; }
-        public AddTeamForm.stTeam Team1 { get; set; }
-        public AddTeamForm.stTeam Team2 { get; set; }
+        public Winner RoundWinner { get; set; }
+        public AddTeamForm.TeamSt CurrentTeam { get; set; }
+        public AddTeamForm.TeamSt Team1 { get; set; }
+        public AddTeamForm.TeamSt Team2 { get; set; }
         public bool IsWaiting { get; set; }
         private List<string> _LargeList;
         private List<string> _Questions;
         private List<CheckBox> _CheckBoxes;
-        private Timer _Timer;
+        private readonly Timer _Timer;
         private readonly Random random = new Random();
         public bool IsTimeOver { get; set; }
         public bool IsTurnOver { get; set; }
@@ -42,13 +42,13 @@ namespace ThirtySeconds
 
         public void CalculateWinner()
         {
-            RoundWinner = AddTeamForm.Team1.Score == AddTeamForm.Team2.Score ? 
-                enWinner.Draw : AddTeamForm.Team1.Score > AddTeamForm.Team2.Score ?
-                enWinner.Team1 : enWinner.Team2;
+            RoundWinner = AddTeamForm.Team1.Score == AddTeamForm.Team2.Score ?
+                Winner.Draw : AddTeamForm.Team1.Score > AddTeamForm.Team2.Score ?
+                Winner.Team1 : Winner.Team2;
         }
 
-        public clsRound(
-            enQuestionType questionType,
+        public ClsRound(
+            QuestionTypeEn questionType,
             List<CheckBox> checkBoxes,
             Timer timer)
         {
@@ -59,7 +59,7 @@ namespace ThirtySeconds
             FillLargeList(ref _LargeList);
             IsWaiting = false;
             IsRoundOver = false;
-            RoundWinner = enWinner.TBD;
+            RoundWinner = Winner.TBD;
         }
 
         private byte GetRandomNumber(int Min = 0, int Max = 5000)
@@ -70,7 +70,7 @@ namespace ThirtySeconds
 
         private void FillLargeList(ref List<string> largeList)
         {
-            largeList = QuestionType == enQuestionType.Nationalities ?
+            largeList = QuestionType == QuestionTypeEn.Nationalities ?
                 new List<string>
                 {
                     "Afghanistan", "Argentina", "Australia", "Austria", "Bangladesh",
@@ -83,7 +83,7 @@ namespace ThirtySeconds
                     "Singapore", "South Africa", "South Korea", "Spain", "Sweden",
                     "Switzerland", "Thailand", "Turkey", "Uganda", "Ukraine",
                     "United Arab Emirates", "United Kingdom", "United States", "Vietnam", "Zimbabwe"
-                } : QuestionType == enQuestionType.Hobbies ?
+                } : QuestionType == QuestionTypeEn.Hobbies ?
                 new List<string>
                 {
                     "Reading", "Writing", "Painting", "Drawing", "Gardening",
@@ -96,7 +96,7 @@ namespace ThirtySeconds
                     "Pottery", "Scrapbooking", "Journaling", "Puzzle Solving", "Chess",
                     "Collecting Stamps", "Collecting Coins", "Playing Board Games", "Martial Arts", "Weightlifting",
                     "Cooking Exotic Dishes", "Volunteering", "DIY Projects", "Origami", "Learning Languages"
-                } : QuestionType == enQuestionType.TVShows ?
+                } : QuestionType == QuestionTypeEn.TVShows ?
                 new List<string>
                 {
                     "Breaking Bad", "Game of Thrones", "Stranger Things", "The Office", "Friends",
@@ -109,7 +109,7 @@ namespace ThirtySeconds
                     "Money Heist", "Chernobyl", "The Wire", "Vikings", "Seinfeld",
                     "Supernatural", "Doctor Who", "CSI: Crime Scene Investigation", "NCIS", "Criminal Minds",
                     "Lucifer", "Arrow", "The Flash", "Smallville", "Gotham"
-                } : QuestionType == enQuestionType.Programming ?
+                } : QuestionType == QuestionTypeEn.Programming ?
                 new List<string>
                 {
                     "Algorithm", "Bug", "Cloud", "Database", "Compiler",
@@ -122,7 +122,7 @@ namespace ThirtySeconds
                     "Python", "Java", "C#", "HTML", "CSS",
                     "JavaScript", "SQL", "NoSQL", "DevOps", "Debugging",
                     "Binary", "Assembly", "SDK", "Open Source", "Virtual Machine"
-                } : QuestionType == enQuestionType.SchoolSubjects ?
+                } : QuestionType == QuestionTypeEn.SchoolSubjects ?
                 new List<string>
                 {
                     "Mathematics", "Physics", "Chemistry", "Biology", "English",
@@ -135,7 +135,7 @@ namespace ThirtySeconds
                     "Accounting", "Law", "Media Studies", "Graphic Design", "Creative Writing",
                     "Anthropology", "Public Speaking", "Civics", "Agriculture", "World Religions",
                     "Photography", "Design and Technology", "Global Studies", "Zoology", "Botany"
-                } : QuestionType == enQuestionType.Movies ?
+                } : QuestionType == QuestionTypeEn.Movies ?
                 new List<string>
                 {
                     "The Godfather", "The Shawshank Redemption", "Pulp Fiction", "Forrest Gump", "The Dark Knight",
@@ -169,7 +169,7 @@ namespace ThirtySeconds
             questions = new List<string>();
             for (byte i = 0; i < 5; i++)
             {
-                string question = "";
+                string question;
                 do
                 {
                     question = _LargeList[GetRandomNumber(0, _LargeList.Count)];
@@ -248,7 +248,7 @@ namespace ThirtySeconds
             }
         }
 
-        private void SaveTeam(ref AddTeamForm.stTeam team)
+        private void SaveTeam(ref AddTeamForm.TeamSt team)
         {
             if (IsTurnOver)
             {
@@ -257,7 +257,7 @@ namespace ThirtySeconds
             }
         }
 
-        private void PlayTurn(AddTeamForm.stTeam team)
+        private void PlayTurn(AddTeamForm.TeamSt team)
         {
             FillQuestions(ref _Questions);
             FillCheckBoxes(ref _CheckBoxes);
