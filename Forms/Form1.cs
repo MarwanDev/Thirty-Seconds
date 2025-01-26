@@ -9,7 +9,7 @@ namespace ThirtySeconds
 {
     public partial class Form1 : Form
     {
-        private clsGame Game;
+        private ClsGame Game;
         private NumberOfRoundsForm numberOfRoundsForm;
         private AddTeamForm addTeamForm;
         private static byte _NumberOfRounds;
@@ -105,7 +105,7 @@ namespace ThirtySeconds
             btnStartRound.Visible = true;
             btnStartRound.Enabled = true;
             btnStart.Enabled = false;
-            Game = new clsGame(
+            Game = new ClsGame(
                 numberOfRounds: _NumberOfRounds,
                 checkBoxes: _CheckBoxes,
                 timer: timer);

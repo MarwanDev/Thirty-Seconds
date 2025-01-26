@@ -15,8 +15,8 @@ namespace ThirtySeconds
         {
             MaximizeBox = false;
             MinimizeBox = false;
-            lblSummary.Text = clsGame.GameSummary;
-            lblFinalResult.Text = clsGame.GameResult;
+            lblSummary.Text = ClsGame.GameSummary;
+            lblFinalResult.Text = ClsGame.GameResult;
             pbTeam1.Image = AddTeamForm.Team1.Image != null ? AddTeamForm.Team1.Image : Resources.logo1;
             pbTeam2.Image = AddTeamForm.Team2.Image != null ? AddTeamForm.Team2.Image : Resources.logo1;
             lblTeam1.Text = AddTeamForm.Team1.Name;

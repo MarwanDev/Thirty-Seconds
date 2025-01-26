@@ -1,40 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ThirtySeconds.ClsRound;
 
 namespace ThirtySeconds
 {
-    internal class clsGame
+    internal class ClsGame
     {
         public byte NumberOfRounds { get; private set; }
-        private List<ClsRound> _Rounds;
+        private readonly List<ClsRound> _Rounds;
         public byte CurrentRoundNumber { get; private set; }
-        public enum enWinner
+        public enum GameWinner
         {
             Team1,
             Team2,
             Draw,
             TBD
         };
-        private enWinner Winner { get; set; }
+        private GameWinner Winner { get; set; }
         public string QuestionTypeText { get; set; }
-        List<CheckBox> _CheckBoxes;
-        Timer _Timer;
+        private readonly List<CheckBox> _CheckBoxes;
+        private readonly Timer _Timer;
         public static string GameSummary { get; private set; }
         public static string GameResult { get; private set; }
 
-        public clsGame(
+        public ClsGame(
             byte numberOfRounds,
             List<CheckBox> checkBoxes,
             Timer timer)
         {
             NumberOfRounds = numberOfRounds;
-            Winner = enWinner.TBD;
+            Winner = GameWinner.TBD;
             _Rounds = new List<ClsRound>();
             QuestionTypeText = "";
             _Timer = timer;
@@ -60,16 +56,16 @@ namespace ThirtySeconds
 
         private void SetGameResultText()
         {
-            GameResult = Winner != enWinner.TBD ?
-                Winner == enWinner.Draw ?
+            GameResult = Winner != GameWinner.TBD ?
+                Winner == GameWinner.Draw ?
                 $"{AddTeamForm.Team1.WinningRounds} - " +
                 $"{AddTeamForm.Team2.WinningRounds}\n" +
                 $"Draw 🤝" :
-                Winner == enWinner.Team1 ?
+                Winner == GameWinner.Team1 ?
                 $"{AddTeamForm.Team1.WinningRounds} - " +
                 $"{AddTeamForm.Team2.WinningRounds}\n" +
                 $"{AddTeamForm.Team1.Name} Wins 🎉" :
-                Winner == enWinner.Team2 ?
+                Winner == GameWinner.Team2 ?
                 $"{AddTeamForm.Team1.WinningRounds} - " +
                 $"{AddTeamForm.Team2.WinningRounds}\n" +
                 $"{AddTeamForm.Team2.Name} Wins 🎉" : null : null;
@@ -102,9 +98,9 @@ namespace ThirtySeconds
 
         private void CalculateGameWinner()
         {
-            Winner = AddTeamForm.Team1.WinningRounds == AddTeamForm.Team2.WinningRounds ? enWinner.Draw :
-                AddTeamForm.Team1.WinningRounds > AddTeamForm.Team2.WinningRounds ? enWinner.Team1 :
-                AddTeamForm.Team1.WinningRounds < AddTeamForm.Team2.WinningRounds ?  enWinner.Team2 : enWinner.TBD;
+            Winner = AddTeamForm.Team1.WinningRounds == AddTeamForm.Team2.WinningRounds ? GameWinner.Draw :
+                AddTeamForm.Team1.WinningRounds > AddTeamForm.Team2.WinningRounds ? GameWinner.Team1 :
+                AddTeamForm.Team1.WinningRounds < AddTeamForm.Team2.WinningRounds ?  GameWinner.Team2 : GameWinner.TBD;
         }
 
         public void FinalizeGame()
