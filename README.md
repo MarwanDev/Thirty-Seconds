@@ -20,7 +20,6 @@ ThirtySeconds is a .NET Windows Forms game designed for fun and engaging group p
 ## Live Demo 🔗
 Try out the game by downloading it using the link below:  
 [Download ThirtySeconds](https://drive.google.com/file/d/1mqhrRYYsBbtbFJ7UduoTtRB1a5pOvgyk/view?usp=drive_link)  
-*(Replace the above link with your actual download link.)*
 
 ## Requirements 🛠️
 - **.NET Framework**: Version 4.7.2 or higher  
