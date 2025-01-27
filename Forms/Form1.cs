@@ -59,7 +59,6 @@ namespace ThirtySeconds
         {
             InitializeGame();
             MaximizeBox = false;
-            MinimizeBox = false;
             cbQuestionType.Text = "Nationalities";
             lblQuestionType.Visible = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
