@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ThirtySeconds.Properties;
 using static ThirtySeconds.ClsRound;
 
 namespace ThirtySeconds
@@ -40,6 +41,8 @@ namespace ThirtySeconds
 
         public QuestionTypeEn SetRoundQuestionType()
         {
+            Settings.Default.QuestionType = QuestionTypeText;
+            Settings.Default.Save();
             return QuestionTypeText == "Programming" ? QuestionTypeEn.Programming :
                 QuestionTypeText == "TV Shows" ? QuestionTypeEn.TVShows :
                 QuestionTypeText == "Movies" ? QuestionTypeEn.Movies :

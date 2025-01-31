@@ -59,11 +59,13 @@ namespace ThirtySeconds
         {
             InitializeGame();
             MaximizeBox = false;
-            cbQuestionType.Text = "Nationalities";
+            cbQuestionType.Text = Settings.Default.QuestionType;
             lblQuestionType.Visible = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             numberOfRoundsForm = new NumberOfRoundsForm();
             addTeamForm = new AddTeamForm();
+            rdLight.Checked = Settings.Default.LightMode;
+            rdDark.Checked = !Settings.Default.LightMode;
         }
 
         private void BtnGameRules_Click(object sender, EventArgs e)
@@ -82,6 +84,8 @@ namespace ThirtySeconds
             addTeamForm.BackColor = rdDark.Checked == true ? Color.FromArgb(28, 28, 28) : Color.White;
             cbQuestionType.BackColor = rdDark.Checked == true ? Color.FromArgb(28, 28, 28) : Color.White;
             resultsForm.BackColor = rdDark.Checked == true ? Color.FromArgb(28, 28, 28) : Color.White;
+            Settings.Default.LightMode = rdLight.Checked;
+            Settings.Default.Save();
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
