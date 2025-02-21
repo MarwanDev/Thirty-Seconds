@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace ThirtySeconds
 {
@@ -37,7 +36,7 @@ namespace ThirtySeconds
             NumberOfRounds = 0;
         }
 
-        private void btnRoundsNumberSave_Click(object sender, EventArgs e)
+        private void BtnRoundsNumberSave_Click(object sender, EventArgs e)
         {
             NumberOfRounds = (byte)nfNumberOfRounds.Value;
             this.Hide();

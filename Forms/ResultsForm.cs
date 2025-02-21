@@ -17,13 +17,13 @@ namespace ThirtySeconds
             MinimizeBox = false;
             lblSummary.Text = ClsGame.GameSummary;
             lblFinalResult.Text = ClsGame.GameResult;
-            pbTeam1.Image = AddTeamForm.Team1.Image != null ? AddTeamForm.Team1.Image : Resources.logo1;
-            pbTeam2.Image = AddTeamForm.Team2.Image != null ? AddTeamForm.Team2.Image : Resources.logo1;
+            pbTeam1.Image = AddTeamForm.Team1.Image ?? Resources.logo1;
+            pbTeam2.Image = AddTeamForm.Team2.Image ?? Resources.logo1;
             lblTeam1.Text = AddTeamForm.Team1.Name;
             lblTeam2.Text = AddTeamForm.Team2.Name;
         }
 
-        private void btnPlayAgain_Click(object sender, EventArgs e)
+        private void BtnPlayAgain_Click(object sender, EventArgs e)
         {
             Form1.ResetGame();
             this.Hide();

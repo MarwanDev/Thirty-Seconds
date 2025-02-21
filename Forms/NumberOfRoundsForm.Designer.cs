@@ -79,7 +79,7 @@
             this.btnRoundsNumberSave.TabIndex = 32;
             this.btnRoundsNumberSave.Text = "Go >";
             this.btnRoundsNumberSave.UseVisualStyleBackColor = false;
-            this.btnRoundsNumberSave.Click += new System.EventHandler(this.btnRoundsNumberSave_Click);
+            this.btnRoundsNumberSave.Click += new System.EventHandler(this.BtnRoundsNumberSave_Click);
             // 
             // NumberOfRoundsForm
             // 
